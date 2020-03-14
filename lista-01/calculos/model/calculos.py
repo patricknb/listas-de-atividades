@@ -5,7 +5,6 @@
 # Definição das funções que realizam cálculos diversos.
 
 
-
 def media_de_tres_numeros(n1, n2, n3):
     """Calcula a média de três números.
     """
@@ -24,10 +23,8 @@ def par(n):
     Retorna True se for par ou False caso contrário.
     Dica: a expressão 5 % 3 vale 2 pois 2 é o resto da divisão de 5 por 3.
     """
-    if n % 2 == 0:
-        return True
-    else:
-        return False
+    return n % 2 == 0
+
 
 def menor_de_tres_numeros(n1, n2, n3):
     """Encontra o menor de três números.
@@ -40,16 +37,12 @@ def menor_de_tres_numeros(n1, n2, n3):
     return menor
 
 
-
 def maior_que(n1, n2):
     """Verifica se o primeiro número é maior que segundo número.
 
     Retorna True se n1 for maior que n2 ou False caso contrário.
     """
-    if n1 > n2:
-        return True
-    else:
-        return False
+    return n1 > n2
 
 
 def divisivel_por(n1, n2):
@@ -59,10 +52,7 @@ def divisivel_por(n1, n2):
     Observação: considera que n1 sempre é maior ou igual a zero e que
     n2 sempre é maior que zero.
     """
-    if n1 % n2 == 0:
-        return True
-    else:
-        return False
+    return n1 % n2 == 0
 
 
 def multiplica(n1, n2):
@@ -76,6 +66,7 @@ def multiplica(n1, n2):
         n1 -= 1
     return m
 
+
 def divide(n1, n2):
     """Faz a divisão inteira do primeiro número pelo segundo número.
 
@@ -87,6 +78,7 @@ def divide(n1, n2):
     """
     return int(n1 / n2)
 
+
 def bissexto(ano):
     """Verifica se um ano é bissexto.
 
@@ -95,10 +87,7 @@ def bissexto(ano):
     Um ano é bissexto se for divisível por 400 ou então
     se for divisível por 4 e, ao mesmo tempo, não for divisível por 100.
     """
-    if ano % 4 == 0 and ano % 100 != 0:
-        return True
-    else:
-        return False
+    return ano % 4 == 0 and ano % 100 != 0
 
 
 def mdc(n1, n2):
@@ -108,19 +97,17 @@ def mdc(n1, n2):
     http://www.mundoeducacao.com/matematica/mdc-divisoes-sucessivas.htm
     """
     if n1 > n2:
-        loop = n2
-        while loop > 0:
-            if n1 % loop == 0 and n2 % loop == 0:
-                return loop
-            else:
-                loop -= 1
+        d = n2 // 2
+        while d != 0:
+            if n1 % d == n2 % d == 0:
+                return d
+            d -= 1
     else:
-        loop = n1
-        while loop > 0:
-            if n2 % loop == 0 and n1 % loop == 0:
-                return loop
-            else:
-                loop -= 1
+        d = n1 // 2
+        while d != 0:
+            if n1 % d == n2 % d == 0:
+                return d
+            d -= 1
 
 
 def soma_dos_divisores(n):
@@ -128,9 +115,9 @@ def soma_dos_divisores(n):
 
     Dica: a metade de n é n // 2.
     """
-    soma = 1 + n
+    soma = n + 1
     d = n/2
-    while d > 1:
+    while d != 1:
         if n % d == 0:
             soma += d
         d -= 1
@@ -155,10 +142,7 @@ def amigos(n1, n2):
         if n2 % d2 == 0:
             somad2 += d2
         d2 -= 1
-    if somad1 == n2 and somad2 == n1:
-        return True
-    else:
-        return False
+    return somad1 == n2 and somad2 == n1
 
 
 def primo(n):
@@ -172,9 +156,8 @@ def primo(n):
         if n % num == 0:
             return False
         num -= 1
-    if num == 1 or n == 1 or n == 2 or n == 3:
+    if num <= 1 :
         return True
-
 
 
 def composto(n):
@@ -184,11 +167,10 @@ def composto(n):
     Retorna True se n for número composto ou False caso contrário.
     Definição: um número é composto se possui mais de dois divisores.
     """
-    num = n - 1
+    num = n//2
     while num > 1:
         if n % num == 0:
             return True
         num -= 1
-    if num == 1:
+    if num <= 1:
         return False
-
