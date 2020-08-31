@@ -11,13 +11,17 @@ def soma(numeros):
     Se a lista estiver vazia então retorna None para indicar
     que o problema não tem solução.
     """
-    soma = 0
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        for numeros in numeros:
-            soma += numeros
-        return soma
+    
+    soma = []
+    
+    for i in range(len(numeros)):
+        
+        soma += numeros[i]
+
+    return soma
 
 
 def em_posicoes_impares(numeros):
@@ -26,15 +30,16 @@ def em_posicoes_impares(numeros):
     Por exemplo, para a lista [20, 30, 40, 50] retorna [30, 50] pois são os
     números que etão nas posições 1 e 3.
     """
-    i = 0
-    resposta = []
-    if len(numeros) == 0:
-        return None
-    for _ in numeros:
-        if i % 2 != 0 and i != 0:
-            resposta.append(numeros[i])
-        i += 1
-    return resposta
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        if i % 2 != 0:
+
+            resultado.append(numeros[i])
+            
+    return resultado
+
 
 
 def primeiro_e_ultimo(numeros):
@@ -43,27 +48,37 @@ def primeiro_e_ultimo(numeros):
     Caso não haja pelo menos dois números retorna None para indicar que
     o problema não tem solução.
     """
+    
     if len(numeros) < 2:
+
         return None
-    else:
-        resposta = []
-        resposta.append(numeros[0])
-        resposta.append(numeros[len(numeros) - 1])
-        return resposta
+
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        if i == 0 or i == (len(numeros)-1):
+
+            resultado.append(numeros[i])
+
+    return resultado
 
 
 def conta_ocorrencias(numeros, numero):
     """Conta quantas vezes o numero aparece na lista numeros.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        resposta = 0
-        for num in numeros:
-            if num == numero:
-                resposta += 1
-        return resposta
-    
+
+    resultado = 0
+
+    for i in range(len(numeros)):
+
+        if numero == numeros[i]:
+            resultado += 1
+
+    return resultado
 
 
 def posicao_do_maior(numeros):
@@ -71,48 +86,65 @@ def posicao_do_maior(numeros):
 
     Se a lista está vazia então retorna None.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        maior_num = 0
-        resposta = 0
-        for i in range(len(numeros)):
-            if maior_num < numeros[i]:
-                maior_num = numeros[i]
-                resposta = i
-        return resposta
+    
+    maior = 0
+    resultado = 0
+
+    for i in range(len(numeros)):
+
+        if maior < numeros[i]:
+
+            maior = numeros[i]
+            resultado = i
+
+    return resultado
+
+    
 
 
-        
 
 def maior(numeros):
     """Encontra o maior número na lista.
 
-    Se a lista estaá vazia (não possui números) então retorna None para
+    Se a lista está vazia (não possui números) então retorna None para
     indicar que o problema não tem solução.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        maior_num = 0
-        for numero in numeros:
-            if numero > maior_num:
-                maior_num = numero
-        return maior_num
+
+    maior = 0
+
+    for i in range(len(numeros)):
+
+        if maior < numeros[i]:
+
+            maior = numeros[i]
     
+    return maior
+
 
 
 def qtd_acima_limite(numeros, limite):
     """Conta quantos números na lista são maiores que um número limite.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        resposta = 0
-        for numero in numeros:
-            if numero > limite:
-                resposta += 1
-        return resposta
+
+    resultado = 0
+
+    for i in range(len(numeros)):
+
+        if numeros[i] > limite:
+
+            resultado += 1
+    
+    return resultado
+
 
 
 def media(numeros):
@@ -121,15 +153,19 @@ def media(numeros):
     Se a lista está vazia então retorna None para indicar que o problema não
     tem solução.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        m = 0
-        for numero in numeros:
-            m += numero
-        return m/len(numeros)
+    
+    resultado = 0
 
+    for i in range(len(numeros)):
 
+        resultado += numeros[i]
+
+    resultado = resultado / len(numeros)
+
+    return resultado
 
 def qtd_no_intervalo(numeros, lim_inf, lim_sup):
     """Conta quantos números estão dentro do intervalo [lim_inf, lim_sup]
@@ -137,14 +173,19 @@ def qtd_no_intervalo(numeros, lim_inf, lim_sup):
     Por exemplo, para numeros [8, 23, 10, 9, 15] e limite inferior 8 e
     limite superior 16 retorna 4.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+        
         return None
-    else:
-        resposta = 0
-        for numero in numeros:
-            if numero >= lim_inf and numero <= lim_sup:
-                resposta += 1
-        return resposta
+
+    resultado = 0
+
+    for i in range(len(numeros)):
+
+        if numeros[i] >= lim_inf and numeros[i] <= lim_sup:
+        
+            resultado += 1
+
+    return resultado
 
 
 def multiplica_por_fator(numeros, fator):
@@ -153,9 +194,16 @@ def multiplica_por_fator(numeros, fator):
     Por exemplo, para numeros [8, 12, 3] e fator 2 a lista deve ser
     alterada para [16, 24, 6]. 
     """
+    if numeros == []:
+        
+        return None
+
     for i in range(len(numeros)):
+
         numeros[i] = numeros[i] * fator
-    pass
+    
+
+
 
 def multiplicado_por_fator(numeros, fator):
     """Obtém uma cópia dos números da lista multiplicados por um fator.
@@ -163,13 +211,18 @@ def multiplicado_por_fator(numeros, fator):
     Por exemplo, para numeros [8, 12, 3] e fator 2 o algoritmo deve retornar
     uma nova lista com os números [16, 24, 6] SEM ALTERAR a lista numeros.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        resposta = numeros.copy()
-        for i in range(len(resposta)):
-            resposta[i] = resposta[i] * fator
-        return resposta
+
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        resultado.append(numeros[i] * fator)
+    
+    return resultado
+
 
 
 def n_primeiros(numeros, n):
@@ -179,27 +232,36 @@ def n_primeiros(numeros, n):
     Se n for maior que a quantidade de números na lista então obtém uma
     cópia de todos os números.
     """
-    if len(numeros) == 0:
-        return None
-    else:
-        a = len(numeros) - 1
-        resposta = numeros.copy()
-        for i in range(a, -1, -1):
-            if i > (n - 1):
-                resposta.pop(i)
-        return resposta
+    if numeros == []:
 
+        return None
+
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        if i < n:
+
+            resultado.append(numeros[i])
+
+    return resultado
 
 def copia(numeros):
     """Obtém uma cópia dos números. Não pode usar método copy.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+
         return None
-    else:
-        resposta = []
-        for numero in numeros:
-            resposta.append(numero)
-        return resposta
+    
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        resultado.append(numeros[i])
+
+    return resultado
+
+
 
 def no_intervalo(numeros, lim_inf, lim_sup):
     """Obtém os números que estão dentro do intervalo.
@@ -209,35 +271,60 @@ def no_intervalo(numeros, lim_inf, lim_sup):
     retornar [8, 3] pois são os únicos números maiores ou
     iguais a 3 e menores ou iguais a 8.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+        
         return None
-    else:
-        resposta = []
-        for i in range(len(numeros)):
-            if numeros[i] >= lim_inf and numeros[i] <= lim_sup:
-                resposta.append(numeros[i])
-        return resposta
+
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        if numeros[i] >= lim_inf and numeros[i] <= lim_sup:
+
+            resultado.append(numeros[i])
+
+    return resultado
 
 
 
 def una(numeros1, numeros2):
     """Obtém uma nova lista que contém todos os números das duas listas.
     """
-    if len(numeros1) == 0 and len(numeros2) == 0:
+    if numeros1 == [] and numeros2 == []:
+        
         return None
-    else:
-        resposta = numeros1.copy() + numeros2.copy()
-        return resposta
+
+    resultado = []
+
+    for i in range(len(numeros1)):
+
+        resultado.append(numeros1[i])
+
+    for j in range(len(numeros2)):
+
+        resultado.append(numeros2[j])
+    
+    return resultado
+
 
 
 def pares(numeros):
     """Obtém os números pares presentes na lista numeros.
     """
-    resposta = []
-    for numero in numeros:
-        if numero % 2 == 0:
-            resposta.append(numero)
-    return resposta
+    if numeros == []:
+        
+        return None
+
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        if numeros[i] % 2 == 0:
+
+            resultado.append(numeros[i])
+
+    return resultado
+
 
 
 def duplica(numeros):
@@ -245,26 +332,33 @@ def duplica(numeros):
 
     Por exemplo, para a lista [3, 12, 4] retorna [3, 3, 12, 12, 4, 4]
     """
-    if len(numeros) == 0:
+    if numeros == []:
+        
         return None
-    else:
-        resposta = []
-        for numero in numeros:
-            for _ in range(2):
-                resposta.append(numero)
-        return resposta
+
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        for _ in range(2):
+
+            resultado.append(numeros[i])
+
+    return resultado
+
+
 
 def possui_par(numeros):
     """Verifica se a lista possui pelo menos um número par.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+        
         return False
-    else:
-        for numero in numeros:
-            if numero % 2 == 0:
-                return True
-        return False
-
+    
+    for i in range(len(numeros)):
+        if numeros[i] % 2 == 0:
+            return True
+    
 
 
 def primeira_posicao_de_numero(numeros, numero):
@@ -273,27 +367,38 @@ def primeira_posicao_de_numero(numeros, numero):
     Por exemplo, para numeros [7, 12, 8, 2, 12] e numero 12 retorna 1. Se o
     número não aparece na lista deve retornar None.
     """
-    if len(numeros) == 0:
+    if numeros == []:
+        
         return None
-    else:
-        for i in range(len(numeros)):
-            if numero == numeros[i]:
-                return i
-        return None
+    
+    for i in range(len(numeros)):
+        if numeros[i] == numero:
+            return i
+    
+    return None
+
+
+
+
 
 def posicoes_de_numero(numeros, numero):
     """Obtém as posições de um número na lista de números.
 
     Por exemplo, para numeros [12, 3, 9, 12, 6] e numero 12 retorna [0, 3]
     """
-    if len(numeros) == 0:
+    if numeros == []:
+        
         return None
-    else:
-        resposta = []
-        for i in range(len(numeros)):
-            if numero == numeros[i]:
-                resposta.append(i)
-        return resposta
+
+    resultado = []
+
+    for i in range(len(numeros)):
+
+        if numeros[i] == numero:
+
+            resultado.append(i)
+        
+    return resultado
 
 
 def sem_repeticoes(numeros):
@@ -301,17 +406,21 @@ def sem_repeticoes(numeros):
 
     Retorna True se não tiver números repetidos e False caso contrário.
     """
-    if len(numeros) == 0:
-        return True
-    else:
-        repeticoes = 0
-        for i in range(len(numeros)):
-            for j in range(len(numeros)):
-                if numeros[i] == numeros[j] and i != j:
-                    repeticoes += 1
-        return repeticoes == 0
+    if numeros == []:
+        
+        return None
 
-    
+    for i in range(len(numeros)):
+        
+        for j in range(len(numeros)):
+
+            if i != j:
+
+                if numeros[i] == numeros[j]:
+
+                    return False
+
+    return True
 
 
 def remove_ocorrencias(numeros, numero):
@@ -319,14 +428,18 @@ def remove_ocorrencias(numeros, numero):
 
     Por exemplo, para numeros [1, 4, 8, 4] e numero 4 retorna [1, 8]
     """
-    if len(numeros) == 0:
+    if numeros == []:
+        
         return None
-    else:
-        resposta = numeros.copy()
-        for i in range(len(numeros)):
-            if numero == numeros[i]:
-                resposta.pop(i)
-        return resposta
+    
+    resultado = numeros.copy()
+
+    for i in range(len(numeros)):
+        if numeros[i] == numero:
+            resultado.pop(i)
+
+    return resultado
+
 
 
 def substitui_ocorrencias(numeros, numero, substituto):
@@ -335,9 +448,12 @@ def substitui_ocorrencias(numeros, numero, substituto):
     Altera a lista numeros e não retorna nada.
     """
     for i in range(len(numeros)):
+
         if numeros[i] == numero:
+
             numeros[i] = substituto
-    pass
+
+
 
 def substitui_primeira_ocorrencia(numeros, numero, substituto):
     """Substitui a primeira ocorrência de um número por outro número.
@@ -345,9 +461,13 @@ def substitui_primeira_ocorrencia(numeros, numero, substituto):
     Altera a lista numeros e não retorna nada.
     """
     for i in range(len(numeros)):
+
         if numeros[i] == numero:
+
             numeros[i] = substituto
             pass
+
+
 
 def substitui_ultima_ocorrencia(numeros, numero, substituto):
     """Substitui a última ocorrência de um número por outro número.
@@ -355,21 +475,32 @@ def substitui_ultima_ocorrencia(numeros, numero, substituto):
     Altera a lista numeros e não retorna nada.
     Dica: percorra a lista de trás para frente
     """
-    for i in range((len(numeros) - 1), -1, -1):
-        if numeros[i] == numero:
-            numeros[i] = substituto
+    for i in range(len(numeros), 0, -1):
+
+        if numeros[i-1] == numero:
+
+            numeros[i-1] = substituto
             pass
+
+
 
 def inverte(numeros):
     """Retorna nova lista com números em posições invertidas.
 
     Por exemplo: para numeros [3, 7, 1, 2] retorna a nova lista [2, 1, 7, 3]
     """
-    resposta = []
-    a = len(numeros) - 1
-    for i in range(a, -1, -1):
-        resposta.append(numeros[i])
-    return resposta
+    if numeros == []:
+        
+        return None
+    
+    resultado = []
+
+    for i in range(len(numeros), 0, -1):
+
+        resultado.append(numeros[i-1])
+
+    return resultado
+
 
 
 def soma_pos_pares_pos_impares(numeros):
@@ -380,20 +511,20 @@ def soma_pos_pares_pos_impares(numeros):
     ímpares (1, 3, 5, etc). Se a lista de números tiver menos de dois números então o método
     retorna None para indicar que o problema não tem solução.
     """
-    if len(numeros) == 0:
+    if len(numeros) < 2:
+        
         return None
-    else:
-        imp = 0
-        par = 0
-        resposta = []
-        for i in range(len(numeros)):
-            if i % 2 == 0 or i == 0:
-                par += numeros[i]
-            else:
-                imp += numeros[i]
-        resposta.append(par)
-        resposta.append(imp)
-        return resposta
+
+    resultado = [0, 0]
+
+    for i in range(len(numeros)):
+        if i % 2 == 0:
+            resultado[0] += numeros[i]
+        else:
+            resultado[1] += numeros[i]
+
+    return resultado
+
 
 
 def das_posicoes(numeros, posicoes):
@@ -402,13 +533,21 @@ def das_posicoes(numeros, posicoes):
     Considera que a lista das posicoes, quando não está vazia,
     sempre contém posições válidas.
     """
-    if len(numeros) == 0 or len(posicoes) == 0:
+    if numeros == [] or posicoes == []:
+        
         return None
-    else:
-        resposta = []
-        for i in posicoes:
-            resposta.append(numeros[i])
-    return resposta
+
+    resultado = []
+
+    for i in range(len(posicoes)):
+        for j in range(len(numeros)):
+
+            if posicoes[i] == j:
+                resultado.append(numeros[j])
+            
+    return resultado
+
+
 
 
 def parte(numeros, pos, qtd):
@@ -426,12 +565,21 @@ def parte(numeros, pos, qtd):
     Se a quantidade for 3 e a posição for 4 então retorna [2].
     Se a quantidade for 2 e a posição for 9 então retorna []
     """
+    if numeros == []:
+        
+        return None
+    
+    resultado = numeros.copy()
+
     for i in range(len(numeros)):
         if i < pos:
-            numeros.pop(i)
-    for j in range(len(numeros) - 1, -1, -1):
-        if qtd < len(numeros):
-            numeros.pop(j)
-    return numeros
+            resultado.pop(i)
+    
+    for j in range(len(resultado), 0, -1):
+
+        if j > qtd:
+            resultado.pop(j-1)
+
+    return resultado
 
     
